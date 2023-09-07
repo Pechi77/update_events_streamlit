@@ -64,6 +64,7 @@ def process_file(file):
     df_final["start_date"] = df_final["start_date"].dt.strftime("%Y-%m-%d")
     df_final["closing_date"] = df_final["closing_date"].dt.strftime("%Y-%m-%d")
     df_final["timezone"] = df_final["timezone"].ffill()
+    df_final["event_type"] = df_final["event_type"].str.strip()
     return df_final
 
 def insert_to_database(data):

@@ -26,6 +26,6 @@ if utils.check_password():
             # utils.insert_to_database(df_processed)
 
             values = df_processed.to_dict(orient="records")
-            for index in stqdm(range(0, len(df_processed), 20)):
+            for index in stqdm(range(0, len(df_processed), 10)):
                 temp_values = values[index:index+20]
                 utils.insert_to_database(temp_values)
