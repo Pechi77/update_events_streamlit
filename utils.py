@@ -67,6 +67,10 @@ def process_file(file):
     df_final["closing_date"] = df_final["closing_date"].dt.strftime("%Y-%m-%d")
     df_final["timezone"] = df_final["timezone"].ffill()
     df_final["event_type"] = df_final["event_type"].str.strip()
+    df_final["chairperson"] = df_final["chairperson"].fillna("")
+    df_final["chairperson"] = df_final["chairperson"].fillna("")
+    df_final["chairperson_email"] = df_final["chairperson_email"].fillna("")
+    df_final["chairperson_phone"] = df_final["chairperson_phone"].fillna("")
     return df_final
 
 
@@ -75,7 +79,12 @@ def insert_to_database(data):
         response = requests.post(HOST+"/events", json=data)
         print(response.status_code)
         print("response")
+        print(HOST)
     except Exception as e:
         print(e)
-        import traceback
-        print(traceback.format_exc())
+
+        # import traceback
+        # print(traceback.format_exc())
+        # import json
+        # print(json.dumps(data))
+        print("*"*15)

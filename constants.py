@@ -15,4 +15,4 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 'EVENT CHAIR EMAIL': "chairperson_email",
 'EVENT CHAIR PHONE': "chairperson_phone"}
 
-server = "prod"
+server = "local"
