@@ -29,3 +29,5 @@ if utils.check_password():
             for index in stqdm(range(0, len(df_processed), 10)):
                 temp_values = values[index:index+20]
                 utils.insert_to_database(temp_values)
+    
+    st.success("Completed!")

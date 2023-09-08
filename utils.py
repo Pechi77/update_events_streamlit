@@ -67,8 +67,8 @@ def process_file(file):
     df_final["event_type"] = df_final["event_type"].str.strip()
     return df_final
 
-def insert_to_database(data):
 
+def insert_to_database(data):
     try:
         response = requests.post(HOST+"/events", json=data)
         print(response.status_code)
