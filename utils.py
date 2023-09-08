@@ -10,7 +10,9 @@ import constants
 # Load the .env file into the environment
 load_dotenv()
 
-HOST = os.getenv("HOST")
+
+HOST = st.secrets["server"][constants.server]
+
 
 
 def check_password():

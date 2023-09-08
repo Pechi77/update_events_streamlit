@@ -30,4 +30,4 @@ if utils.check_password():
                 temp_values = values[index:index+20]
                 utils.insert_to_database(temp_values)
     
-    st.success("Completed!")
+            st.success("Completed!")
