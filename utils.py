@@ -62,7 +62,7 @@ def process_file(file):
     df_final = df.groupby(["hostclub", df.groupby('hostclub')["start_date"].diff().bfill()], as_index=False).apply(grouped_operation)
     df_final["entry_fee"] = df_final["entry_fee"].fillna("$").apply(lambda row: row.strip("$"))
     df_final["entry_fee"] = df_final["entry_fee"].replace({"":0})
-    df_final["entry_fee"] = df_final["entry_fee"].astype(int)
+    df_final["entry_fee"] = df_final["entry_fee"].astype(float)
     df_final["start_date"] = df_final["start_date"].dt.strftime("%Y-%m-%d")
     df_final["closing_date"] = df_final["closing_date"].dt.strftime("%Y-%m-%d")
     df_final["timezone"] = df_final["timezone"].ffill()
@@ -80,6 +80,7 @@ def insert_to_database(data):
         print(response.status_code)
         print("response")
         print(HOST)
+        print(response.text)
     except Exception as e:
         print(e)
 
