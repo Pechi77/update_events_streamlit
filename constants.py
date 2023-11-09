@@ -1,6 +1,7 @@
 RENAME_DICT = {'HOST CLUB': "hostclub",
 'EVENT NUMBER': "event_number",
 'EVENT ADDRESS': "event_address",
+"ADDRESS": "event_address",
 'CITY': "city",
 'STATE': "state",
 'TIME ZONE': "timezone",
