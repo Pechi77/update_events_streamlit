@@ -51,7 +51,11 @@ def process_file(file):
         grouped_df["closing_date"] = last_row["start_date"]
         return grouped_df.iloc[0, :]
     
-    df = pd.read_csv(file)
+    try:
+        df = pd.read_csv(file)
+    except UnicodeDecodeError:
+        df = pd.read_csv(file, encoding="iso8859")
+        
     df.columns = df.columns.str.strip()
     df = df.rename(columns=constants.RENAME_DICT)
     df["start_date"] = pd.to_datetime(df["start_date"])

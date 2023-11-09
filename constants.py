@@ -8,11 +8,15 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 'ENTRY FEE': "entry_fee",
 'EVENT TYPE': "event_type",
 'EVENT START DATE': "start_date",
+"EVENT START & FINISH  DATES": "start_date",
 # "closing_date",
 'EVENT START DAY': "start_day",
+"EVENT START & FINISH DAYS": "start_day",
 # "closing_day",
 'EVENT CHAIRPERSON': "chairperson",
+"EVENT CHAIR PERSON": "chairperson",
 'EVENT CHAIR EMAIL': "chairperson_email",
-'EVENT CHAIR PHONE': "chairperson_phone"}
+'EVENT CHAIR PHONE': "chairperson_phone",
+}
 
 server = "prod"
