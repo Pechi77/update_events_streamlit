@@ -45,11 +45,16 @@ def check_password():
     
 def process_file(file):
 
+    CHILD_EVENTS_DICT = {}
     def grouped_operation(grouped_df):
+    
         last_row = grouped_df.iloc[-1]  # Get the last row of the group
         grouped_df["closing_day"] = last_row["start_day"]
         grouped_df["closing_date"] = last_row["start_date"]
+        parent_event = grouped_df["event_number"].iloc[0]
+        CHILD_EVENTS_DICT[parent_event] = grouped_df["event_number"].astype(str).str.cat(sep=",")
         return grouped_df.iloc[0, :]
+    
     
     try:
         df = pd.read_csv(file)
@@ -75,6 +80,7 @@ def process_file(file):
     df_final["chairperson"] = df_final["chairperson"].fillna("")
     df_final["chairperson_email"] = df_final["chairperson_email"].fillna("")
     df_final["chairperson_phone"] = df_final["chairperson_phone"].fillna("")
+    df_final["child_events"] = df_final["event_number"].map(CHILD_EVENTS_DICT)
     return df_final
 
 

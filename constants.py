@@ -2,14 +2,18 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 'EVENT NUMBER': "event_number",
 'EVENT ADDRESS': "event_address",
 "ADDRESS": "event_address",
+"ADRESS": "event_address",
 'CITY': "city",
 'STATE': "state",
+'STTE': "state",
 'TIME ZONE': "timezone",
+"TIME XONE": "timezone",
 'ELIGIBLE BREEDS': "eligible_breeds",
 'ENTRY FEE': "entry_fee",
 'EVENT TYPE': "event_type",
 'EVENT START DATE': "start_date",
 "EVENT START & FINISH  DATES": "start_date",
+"EVENT START & FINISH DATES":"start_date",
 # "closing_date",
 'EVENT START DAY': "start_day",
 "EVENT START & FINISH DAYS": "start_day",
@@ -21,3 +25,4 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 }
 
 server = "prod"
+server = "local"
