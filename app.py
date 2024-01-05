@@ -18,8 +18,8 @@ if utils.check_password():
     uploaded_file = st.file_uploader("Choose a file", type={"csv"})
     if uploaded_file is not None:
         df_processed = utils.process_file(uploaded_file)
-        
-        st.write(df_processed)
+        st_df = st.dataframe(df_processed)
+        st.write(st_df)
         button = st.button("Submit to Database")
         if button:
             st.write("Inserting new events to database")
