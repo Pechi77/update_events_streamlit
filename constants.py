@@ -11,6 +11,7 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 'ELIGIBLE BREEDS': "eligible_breeds",
 'ENTRY FEE': "entry_fee",
 'EVENT TYPE': "event_type",
+"Event Type": "event_type",
 'EVENT START DATE': "start_date",
 "EVENT START & FINISH  DATES": "start_date",
 "EVENT START & FINISH DATES":"start_date",
@@ -25,4 +26,4 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 }
 
 server = "prod"
-server = "local"
+# server = "local"
