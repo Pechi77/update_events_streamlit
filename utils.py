@@ -64,7 +64,7 @@ def process_file(file):
     df.columns = df.columns.str.strip()
     df = df.rename(columns=constants.RENAME_DICT)
     df["start_date"] = pd.to_datetime(df["start_date"])
-    df = df.sort_values(by=["hostclub", "event_number", "start_date"])
+    df = df.sort_values(by=["hostclub", "start_date"])
     df["hostclub"] = df["hostclub"].apply(str.strip)
     # df = df.drop_duplicates(subset=["hostclub", "start_date"])
     # df.reset_index(drop=True, inplace=True)
