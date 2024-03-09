@@ -20,6 +20,8 @@ if utils.check_password():
         df_processed = utils.process_file(uploaded_file)
         st.write(df_processed)
         button = st.button("Submit to Database")
+        download_button = st.download_button("Download consolidated file", df_processed.to_csv(index=False).encode('utf-8'), "consolidated.csv", "text/csv", help="Download the consolidated file")
+        
         if button:
             st.write("Inserting new events to database")
             # utils.insert_to_database(df_processed)
