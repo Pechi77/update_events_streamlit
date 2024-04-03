@@ -22,12 +22,17 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 "EVENT START & FINISH DAYS": "start_day",
 # "closing_day",
 'EVENT CHAIRPERSON': "chairperson",
+
+"EVENT CONTACTSecretary Name":  "chairperson",
+"EVENT CONTACT":  "chairperson",
 "EVENT CHAIR PERSON": "chairperson",
 "EVENT CONTACT": "chairperson",
 'EVENT CHAIR EMAIL': "chairperson_email",
+"CONTACT EMAIL": "chairperson_email",
 "EVENT CONTACT EMAIL": "chairperson_email",
 'EVENT CHAIR PHONE': "chairperson_phone",
 "EVENT CONTACT PHONE":  "chairperson_phone",
+"CONTACT PHONE":  "chairperson_phone",
 
 }
 
