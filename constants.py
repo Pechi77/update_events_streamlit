@@ -36,5 +36,19 @@ RENAME_DICT = {'HOST CLUB': "hostclub",
 
 }
 
+
+
+CLUB_RENAME_DICT = {
+    "club_number": "clubNumber",
+    "club_name": "clubName",
+    "club_type": "clubType",
+    "secretary_role": "secretaryRole",
+    "secretary_name": "secretaryName",
+    "secretary_email": "secretaryEmail",
+    "state_name": "stateName",
+    "state_code": "stateCode",
+    "event_type": "eventType"
+}
+
 server = "prod"
 # server = "local"
