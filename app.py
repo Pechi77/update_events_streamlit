@@ -1,6 +1,7 @@
 from io import StringIO, BytesIO
 import base64
 
+import pandas as pd
 from stqdm import stqdm
 
 import streamlit as st
@@ -19,6 +20,8 @@ if utils.check_password():
     if uploaded_file is not None:
         df_processed = utils.process_file(uploaded_file)
         st.write(df_processed)
+        if "event_address" in df_processed:
+            df_processed = df_processed[df_processed["event_address"].ne("mocked_event_address")]
         button = st.button("Submit to Database")
         download_button = st.download_button("Download consolidated file", df_processed.to_csv(index=False).encode('utf-8'), "consolidated.csv", "text/csv", help="Download the consolidated file")
         

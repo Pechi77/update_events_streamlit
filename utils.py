@@ -83,6 +83,30 @@ def process_file(file):
     df_final["chairperson_phone"] = df_final["chairperson_phone"].fillna("")
     df_final["child_events"] = df_final["event_number"].map(CHILD_EVENTS_DICT)
     df_final["event_type"] = df_final["event_type"].replace({"FCAT":"FastCAT"})
+    if df_final.shape[0] == 1:
+        # Add a new row with mocked values for all columns
+        new_row = {
+            'hostclub': 'mocked hostclub, will not insert into database', 
+            'event_number': 1234567890, 
+            'event_address': 'mocked_event_address', 
+            'city': 'mocked_city',
+            'state':'mocked_state',
+            'start_day': 'Monday', 
+            'start_date': '2024-01-01', 
+            'timezone': 'Central', 
+            'chairperson': 'Denise',
+            'chairperson_phone': '9876543210', 
+            'chairperson_email': 'john_doe@abc.com', 
+            'eligible_breeds': 'Eligible breeds',
+            'entry_fee': 25.0, 
+            'event_type': 'FastCAT', 
+            'closing_day': 'Monday', 
+            'closing_date': '2024-01-01',
+            'child_events': '1234567890'
+            # Add more columns and mocked values as needed
+        }
+        new_df = pd.DataFrame(new_row, index=[1])
+        df_final = pd.concat([df_final, new_df], ignore_index=True)
     return df_final
 
 
