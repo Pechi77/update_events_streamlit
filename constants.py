@@ -60,4 +60,4 @@ CLUB_RENAME_DICT = {
 }
 
 server = "prod"
-server = "local"
+# server = "local"
