@@ -42,9 +42,16 @@ def check_password():
     else:
         # Password correct.
         return True
-    
-def process_file(file):
 
+
+def read_file(file):
+    try:
+        df = pd.read_csv(file)
+    except UnicodeDecodeError:
+        df = pd.read_csv(file, encoding="iso8859")
+    return df
+
+def process_events_file(file):
     CHILD_EVENTS_DICT = {}
     def grouped_operation(grouped_df):
     
@@ -56,10 +63,7 @@ def process_file(file):
         return grouped_df.iloc[0, :]
     
     
-    try:
-        df = pd.read_csv(file)
-    except UnicodeDecodeError:
-        df = pd.read_csv(file, encoding="iso8859")
+    df = read_file(file)
         
     df.columns = df.columns.str.strip()
     df = df.rename(columns=constants.RENAME_DICT)
@@ -110,9 +114,27 @@ def process_file(file):
     return df_final
 
 
-def insert_to_database(data):
+def process_club_file(file):
+    df = read_file(file)
+    df.columns = df.columns.str.strip().str.lower()
+    df = df.rename(columns=constants.CLUB_RENAME_DICT)
+    df["id"] = df["clubNumber"]
+    
+    return df
+
+
+def process_file(file, option):
+    if option == "Events Data Uploader":
+        return process_events_file(file)
+    else:
+        return process_club_file(file)
+        
+    
+
+
+def insert_to_database(data, endpoint):
     try:
-        response = requests.post(HOST+"/events", json=data)
+        response = requests.post(HOST+f"/{endpoint}", json=data)
         print(response.status_code)
         print("response")
         print(HOST)
@@ -125,3 +147,12 @@ def insert_to_database(data):
         # import json
         # print(json.dumps(data))
         print("*"*15)
+
+
+def get_subheader(option):
+    if option == "Events Data Uploader":
+        return 'Events Data Uploader', "events"
+    elif option == "Club Directory Data Uploader":
+        return 'Club Directory Data Uploader', "clubs"
+    else:
+        return 'Select Uploader', _
