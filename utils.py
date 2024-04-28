@@ -139,6 +139,8 @@ def insert_to_database(data, endpoint):
         print("response")
         print(HOST)
         print(response.text)
+        if response.status_code != 200:
+            breakpoint()
     except Exception as e:
         print(e)
 
@@ -153,6 +155,6 @@ def get_subheader(option):
     if option == "Events Data Uploader":
         return 'Events Data Uploader', "events"
     elif option == "Club Directory Data Uploader":
-        return 'Club Directory Data Uploader', "clubs"
+        return 'Club Directory Data Uploader', "clubs_bulk"
     else:
         return 'Select Uploader', _
