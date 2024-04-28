@@ -56,8 +56,15 @@ CLUB_RENAME_DICT = {
     "state_code": "stateCode",
     "statecode": "stateCode",
     "event_type": "eventType",
-    "eventtype": "eventType"
+    "eventtype": "eventType",
+    "street address": "address",
+    "Street address": "address",
+    "Street Address": "address",
+    "city": "StateName",
+    "City": "StateName",
+    
 }
+
 
 server = "prod"
 # server = "local"

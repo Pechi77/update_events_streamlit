@@ -18,7 +18,8 @@ if utils.check_password():
     uploaded_file = st.file_uploader("Choose a file", type={"csv"})
     if uploaded_file is not None:
         df_processed = utils.process_file(uploaded_file, option)
-        st.write(df_processed)
+        skip_cols_display = ["id", "clubNumber", "clubType", ]
+        st.write(df_processed[[col for col in df_processed.columns if col not in skip_cols_display]])
         if "event_address" in df_processed:
             df_processed = df_processed[df_processed["event_address"].ne("mocked_event_address")]
         button = st.button("Submit to Database")
