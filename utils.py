@@ -118,7 +118,7 @@ def process_club_file(file):
     df = read_file(file)
     df.columns = df.columns.str.strip().str.lower()
     df = df.rename(columns=constants.CLUB_RENAME_DICT)
-    df["id"] = df["clubNumber"]
+    # df["id"] = df["clubNumber"]
     
     return df
 
